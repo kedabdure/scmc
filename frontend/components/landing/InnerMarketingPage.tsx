@@ -17,7 +17,7 @@ export default function InnerMarketingPage({
   cards,
 }: InnerMarketingPageProps) {
   return (
-    <div className="min-h-screen bg-[#0a0807]">
+    <div className="min-h-screen bg-[#09090b]">
       <InnerPageHero eyebrow={eyebrow} title={title} description={description} />
       <InnerPageGrid items={cards} />
       <CtaSection />

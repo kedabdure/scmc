@@ -28,7 +28,7 @@ const ITEMS = [
 export default function WorkflowSection() {
   return (
     <section className="bg-[#f9f9f9] py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-10">
+      <div className="mx-auto w-full max-w-360 px-10">
         <SectionIntro
           eyebrow="Built For Modern Teams"
           title="Supercharge Your Finance Team With Powerful Automation"
@@ -57,8 +57,8 @@ export default function WorkflowSection() {
         </StaggerReveal>
 
         <Reveal className="mt-10 rounded-md border-l-4 border-black/20 bg-white p-8 text-lg leading-relaxed text-black/70">
-          "We cut our billing cycle from 20 days to 6 days and unlocked visibility
-          our team never had before."
+          &quot;We cut our billing cycle from 20 days to 6 days and unlocked visibility
+          our team never had before.&quot;
         </Reveal>
       </div>
     </section>

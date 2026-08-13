@@ -1,34 +1,104 @@
 "use client";
 
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 
-import { fadeInUp, staggerContainerFast } from "@/lib/motion";
+import { Button } from "@/components/ui/button";
 
 const METRICS = [
-  { value: "10x", label: "Transaction capacity" },
-  { value: "$2.8m", label: "Avg annual savings" },
-  { value: "120h", label: "Monthly time saved" },
+  {
+    end: 10,
+    suffix: "x",
+    label: "TRANSACTION CAPACITY INCREASE"
+  },
+  {
+    end: 1,
+    prefix: "$",
+    suffix: "m",
+    label: "AVERAGE ANNUAL SAVINGS"
+  },
+  {
+    end: 8,
+    suffix: "x",
+    label: "REDUCTION IN TRANSACTION COSTS"
+  },
 ];
 
 export default function MetricsBar() {
   return (
-    <section className="border-y border-white/10 bg-[#09090b]">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={staggerContainerFast}
-        className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-8 px-10 py-16 sm:grid-cols-3"
-      >
-        {METRICS.map((item) => (
-          <motion.div key={item.label} variants={fadeInUp} className="text-white">
-            <p className="text-4xl font-semibold tracking-tight">{item.value}</p>
-            <p className="mt-2 text-sm font-medium uppercase tracking-wider text-white/60">
-              {item.label}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
+    <section className="bg-[#e5e5e3] py-24">
+      <div className="mx-auto max-w-[1440px] px-10">
+        {/* Eyebrow */}
+        <div className="mb-6 flex items-center gap-2">
+          <span className="inline-block h-2 w-2 bg-[#636363]" />
+          <span className="text-xs font-medium uppercase tracking-widest text-[#636363]">
+            REDEFINING FINANCE
+          </span>
+        </div>
+
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 max-w-3xl font-['Fraunces'] text-5xl font-medium leading-tight tracking-tight text-[#080808] md:text-6xl lg:text-7xl"
+        >
+          Supercharge Your Finance Team With Powerful Automation
+        </motion.h2>
+
+        {/* Subtext */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-10 max-w-xl text-lg leading-relaxed text-[#636363]"
+        >
+          Lateral frees you from admin so you can think sharper, move faster and scale without friction.
+        </motion.p>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-20"
+        >
+          <Button
+            size="lg"
+            variant="default"
+            className="bg-[#080808] text-white hover:bg-[#1a1a1a]"
+          >
+            Request Demo
+          </Button>
+        </motion.div>
+
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-1 gap-0 border-t border-[#636363]/20 pt-16 sm:grid-cols-3">
+          {METRICS.map((metric, index) => (
+            <div
+              key={metric.label}
+              className={`px-8 ${index !== METRICS.length - 1 ? "sm:border-r sm:border-[#636363]/20" : ""}`}
+            >
+              <div className="mb-4 font-['Fraunces'] text-6xl font-medium tracking-tight text-[#080808] md:text-7xl lg:text-8xl">
+                <CountUp
+                  end={metric.end}
+                  prefix={metric.prefix}
+                  suffix={metric.suffix}
+                  duration={2}
+                  enableScrollSpy
+                  scrollSpyOnce
+                />
+              </div>
+              <p className="font-mono text-xs font-medium uppercase tracking-wider text-[#636363]">
+                {metric.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

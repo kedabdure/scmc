@@ -3,7 +3,9 @@
     "allow": [
       "Bash(curl -L -A \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36\" \"https://lateral.framer.media/\" -o \"/tmp/lateral_homepage.html\")",
       "Read(//d//**)",
-      "Bash(curl -L \"https://lateral.framer.media/product\")"
+      "Bash(curl -L \"https://lateral.framer.media/product\")",
+      "Bash(npm install react-fast-marquee)",
+      "Bash(npm install react-countup)"
     ],
     "deny": [],
     "ask": []

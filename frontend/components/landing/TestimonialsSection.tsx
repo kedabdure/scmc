@@ -1,4 +1,9 @@
-import { Reveal, StaggerReveal } from "@/components/motion/Reveal";
+"use client";
+
+import { motion } from "framer-motion";
+
+import { StaggerReveal } from "@/components/motion/Reveal";
+import { fadeInUp } from "@/lib/motion";
 
 import SectionIntro from "./SectionIntro";
 
@@ -25,24 +30,28 @@ const TESTIMONIALS = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-[#090706] py-24">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#f9f9f9] py-24">
+      <div className="mx-auto w-full max-w-360 px-10">
         <SectionIntro
           eyebrow="Customer Success"
           title="Real Impact. Transformational Results."
           description="Used by high-growth teams and global operators to transform finance operations."
+          theme="light"
         />
 
         <StaggerReveal className="grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((item) => (
-            <Reveal
+            <motion.div
               key={item.author}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 text-white"
+              variants={fadeInUp}
+              className="rounded-md border border-black/10 bg-white p-8"
             >
-              <p className="text-lg leading-relaxed text-white/80">{item.quote}</p>
-              <p className="mt-6 text-base font-semibold">{item.author}</p>
-              <p className="text-sm uppercase tracking-[0.1em] text-white/55">{item.title}</p>
-            </Reveal>
+              <p className="text-lg leading-relaxed text-black/70">&quot;{item.quote}&quot;</p>
+              <p className="mt-6 text-base font-semibold text-black">{item.author}</p>
+              <p className="text-sm font-medium uppercase tracking-wider text-black/40">
+                {item.title}
+              </p>
+            </motion.div>
           ))}
         </StaggerReveal>
       </div>
