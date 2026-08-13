@@ -1,26 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Lateral-inspired color palette */
+  --background-dark: #000000;
+  --background-dark-alt: #09090b;
+  --background-light: #f9f9f9;
+  --background-light-alt: #f7f7f7;
+  --background-gray: #e5e5e3;
+
+  --foreground-white: #ffffff;
+  --foreground-black: #080808;
+  --foreground-muted: #969290;
+  --foreground-gray: #636363;
+
+  --border-light: rgba(230, 227, 227, 0.25);
+  --border-dark: rgba(189, 189, 189, 0.2);
+  --border-white: rgba(255, 255, 255, 0.2);
+
+  --overlay-dark: rgba(59, 59, 59, 0.4);
+  --overlay-light: rgba(230, 227, 227, 0.15);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-background: var(--background-dark);
+  --color-foreground: var(--foreground-white);
+  --font-sans: "Inter", var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--background-dark);
+  color: var(--foreground-white);
+  font-family: "Inter", var(--font-geist-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", var(--font-geist-sans), sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
