@@ -21,8 +21,8 @@ const FEATURES = [
 
 export default function FeatureCards() {
   return (
-    <section className="bg-[#0b0807] py-20">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#09090b] py-24">
+      <div className="mx-auto w-full max-w-[1440px] px-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -34,11 +34,17 @@ export default function FeatureCards() {
             <motion.article
               key={feature.title}
               variants={fadeInUp}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 text-white backdrop-blur-sm"
+              className="rounded-md border border-white/10 bg-white/[0.02] p-8 text-white"
             >
-              <p className="text-xs uppercase tracking-[0.14em] text-white/60">Feature</p>
-              <h3 className="mt-3 text-2xl font-semibold">{feature.title}</h3>
-              <p className="mt-4 text-base leading-relaxed text-white/75">{feature.body}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-white/50">
+                Feature
+              </p>
+              <h3 className="mt-4 text-2xl font-semibold tracking-tight">
+                {feature.title}
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-white/70">
+                {feature.body}
+              </p>
             </motion.article>
           ))}
         </motion.div>
