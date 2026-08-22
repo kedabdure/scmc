@@ -16,7 +16,7 @@ export function HeroPhoneMockup({ src, alt }: HeroPhoneMockupProps) {
       transition={{ duration: 0.8, delay: 0.3 }}
       className="relative flex justify-center lg:justify-end"
     >
-      <div className="relative h-[600px] w-[300px] sm:h-[700px] sm:w-[350px]">
+      <div className="relative h-150 w-75 sm:h-175 sm:w-87.5">
         <Image
           src={src}
           alt={alt}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 
+import { VerticalLine } from "@/components/commons/VerticalLine";
 import { Button } from "@/components/ui/button";
 
 const METRICS = [
@@ -27,53 +28,55 @@ const METRICS = [
 export default function MetricsBar() {
   return (
     <section className="bg-[#e5e5e3] py-24">
-      <div className="mx-auto max-w-[1440px] px-10">
-        {/* Eyebrow */}
-        <div className="mb-6 flex items-center gap-2">
-          <span className="inline-block h-2 w-2 bg-[#636363]" />
-          <span className="text-xs font-medium uppercase tracking-widest text-[#636363]">
-            REDEFINING FINANCE
-          </span>
-        </div>
+      <div className="mx-auto max-w-360 px-10">
+        <div className="relative mb-20 pl-6">
+          <VerticalLine variant="dark" />
+          {/* Eyebrow */}
+          <div className="mb-6 flex items-center gap-2">
+            <span className="inline-block h-2 w-2 bg-[#636363]" />
+            <span className="text-xs font-medium uppercase tracking-widest text-[#636363]">
+              REDEFINING FINANCE
+            </span>
+          </div>
 
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-6 max-w-3xl font-['Fraunces'] text-5xl font-medium leading-tight tracking-tight text-[#080808] md:text-6xl lg:text-7xl"
-        >
-          Supercharge Your Finance Team With Powerful Automation
-        </motion.h2>
-
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-10 max-w-xl text-lg leading-relaxed text-[#636363]"
-        >
-          Lateral frees you from admin so you can think sharper, move faster and scale without friction.
-        </motion.p>
-
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-20"
-        >
-          <Button
-            size="lg"
-            variant="default"
-            className="bg-[#080808] text-white hover:bg-[#1a1a1a]"
+          {/* Heading */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-6 max-w-3xl font-['Fraunces'] text-5xl font-medium leading-tight tracking-tight text-[#080808] md:text-4xl"
           >
-            Request Demo
-          </Button>
-        </motion.div>
+            Supercharge Your Finance Team With Powerful Automation
+          </motion.h2>
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-10 max-w-xl text-lg leading-relaxed text-[#636363]"
+          >
+            Lateral frees you from admin so you can think sharper, move faster and scale without friction.
+          </motion.p>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Button
+              size="lg"
+              variant="default"
+              className="bg-[#080808] text-white hover:bg-[#1a1a1a]"
+            >
+              Request Demo
+            </Button>
+          </motion.div>
+        </div>
 
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 gap-0 border-t border-[#636363]/20 pt-16 sm:grid-cols-3">
@@ -87,7 +90,7 @@ export default function MetricsBar() {
                   end={metric.end}
                   prefix={metric.prefix}
                   suffix={metric.suffix}
-                  duration={2}
+                  duration={1.2}
                   enableScrollSpy
                   scrollSpyOnce
                 />

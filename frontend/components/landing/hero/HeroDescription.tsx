@@ -17,7 +17,7 @@ export function HeroDescription({
   return (
     <motion.p
       variants={variants}
-      className={`mt-8 max-w-[540px] text-lg leading-relaxed text-white/80 sm:text-xl ${className}`}
+      className={`mt-6 max-w-sm text-lg text-white/80 sm:text-lg leading-5.5 ${className}`}
     >
       {children}
     </motion.p>

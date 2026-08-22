@@ -13,7 +13,7 @@ export function HeroHeading({ children, highlight, variants }: HeroHeadingProps)
   return (
     <motion.h1
       variants={variants}
-      className="text-5xl font-medium leading-[1.1] sm:text-6xl lg:text-7xl xl:text-[80px]"
+      className="text-4xl font-medium leading-[1.1] sm:text-6xl lg:text-[65px]"
       style={{ fontFamily: "'Fraunces', serif" }}
     >
       {children}

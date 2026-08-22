@@ -1,5 +1,6 @@
 "use client";
 
+import { VerticalLine } from "@/components/commons/VerticalLine";
 import { Reveal } from "@/components/motion/Reveal";
 
 type SectionIntroProps = {
@@ -19,8 +20,9 @@ export default function SectionIntro({
 
   return (
     <Reveal
-      className={`mx-auto mb-12 max-w-3xl ${isDark ? "text-white" : "text-black"}`}
+      className={`relative mx-auto mb-12 max-w-3xl pl-6 ${isDark ? "text-white" : "text-black"}`}
     >
+      <VerticalLine variant={isDark ? "light" : "dark"} />
       <div
         className="mb-4 inline-flex items-center gap-2 rounded-full backdrop-blur-[30px]"
         style={{

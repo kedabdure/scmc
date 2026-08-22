@@ -28,7 +28,7 @@ const TESTIMONIALS = [
   },
 ];
 
-export default function TestimonialsSection() {
+export default function Testimonials() {
   return (
     <section className="bg-[#f9f9f9] py-24">
       <div className="mx-auto w-full max-w-360 px-10">

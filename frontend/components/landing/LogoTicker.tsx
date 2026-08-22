@@ -13,21 +13,25 @@ const LOGOS = [
   { name: "NORTHRIDGE", hasIcon: false },
 ];
 
+const EDGE_FADE_MASK =
+  "linear-gradient(to right, transparent, black 15%, black 88%, transparent)";
+
 export default function LogoTicker() {
   return (
-    <div className="border-t border-white/10 bg-black/30 py-6 backdrop-blur-sm">
-      <Marquee
-        speed={30}
-        gradient={true}
-        gradientColor="rgba(0, 0, 0, 0.3)"
-        gradientWidth={100}
-        pauseOnHover={true}
+    <div className="w-full py-7">
+      <div
         className="overflow-hidden"
+        style={{
+          WebkitMaskImage: EDGE_FADE_MASK,
+          maskImage: EDGE_FADE_MASK,
+        }}
       >
-        {LOGOS.map((logo, index) => (
-          <LogoItem key={index} name={logo.name} hasIcon={logo.hasIcon} />
-        ))}
-      </Marquee>
+        <Marquee speed={15} gradient={false} pauseOnHover={true} autoFill={true}>
+          {LOGOS.map((logo, index) => (
+            <LogoItem key={index} name={logo.name} hasIcon={logo.hasIcon} />
+          ))}
+        </Marquee>
+      </div>
     </div>
   );
 }

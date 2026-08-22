@@ -30,7 +30,7 @@ export default function FaqSection() {
             <motion.details
               key={question}
               variants={fadeInUp}
-              className="group rounded-md border border-white/10 bg-white/[0.02] p-6 text-white"
+              className="group rounded-md border border-white/10 bg-white/2 p-6 text-white"
             >
               <summary className="cursor-pointer list-none text-lg font-medium">
                 {question}

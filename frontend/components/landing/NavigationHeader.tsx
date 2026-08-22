@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
@@ -12,16 +14,34 @@ const NAV_LINKS = [
   { label: "Blog", href: "/blog" },
 ];
 
-type NavigationHeaderProps = {
-  absolute?: boolean;
-};
+export default function NavigationHeader() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-export default function NavigationHeader({ absolute = true }: NavigationHeaderProps) {
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 20);
+
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest < 96) {
+      setHidden(false);
+      return;
+    }
+    setHidden(latest > previous);
+  });
+
   return (
-    <header
-      className={`${absolute ? "absolute" : "relative"} inset-x-0 top-0 z-50 w-full`}
+    <motion.header
+      animate={hidden ? "hidden" : "visible"}
+      variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className={`fixed inset-x-0 top-0 z-50 w-full transition-colors duration-300 ${
+        scrolled
+          ? "border-b border-white/10 bg-black/70 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
     >
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-10 py-6">
+      <div className="mx-auto flex h-18 max-w-360 items-center justify-between px-10">
         <Link href="/" className="text-xl font-medium text-white">
           Lateral
         </Link>
@@ -38,22 +58,22 @@ export default function NavigationHeader({ absolute = true }: NavigationHeaderPr
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Button
             variant="ghost"
             size="sm"
-            className="hidden text-sm font-medium text-white/90 hover:bg-white/10 hover:text-white sm:inline-flex"
+            className="hidden text-sm font-semibold text-white/90 hover:bg-white/10 hover:text-white sm:inline-flex"
           >
             Log In
           </Button>
           <Button
             size="sm"
-            className="h-11 rounded-full bg-white px-6 text-sm font-semibold text-black hover:bg-white/90"
+            className="h-10 rounded-full bg-white px-6 text-[14px] font-semibold text-black hover:bg-white/90"
           >
             Request Demo
           </Button>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
